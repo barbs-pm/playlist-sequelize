@@ -51,6 +51,57 @@ class PlaylistController {
             return res.status(500).json(error.message)
         }
     }
+
+    static async listOneMusica(req, res) {
+        const { id_playlist, id_musica } = req.params
+        try {
+            const oneMusica = await database.Playlists_musicas.findOne({
+                where: {
+                    id_playlist: Number(id_playlist),
+                    id_musica: Number(id_musica)
+                }
+            })
+            if(!oneMusica) {
+                return res.status(200).json({ mensagem: 'Não foi encontrado nenhum registro' })
+            } else {
+                const descrMusica = await database.Musicas.findOne({ where: { id: Number(oneMusica.id_musica) } })
+                return res.status(200).json(descrMusica)
+            }
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async listAllMusicas(req, res) {
+        const { id_playlist } = req.params
+        try {
+            const allMusicas = await database.Playlists_musicas.findAll({
+                where: {
+                    id_playlist: Number(id_playlist)
+                },
+                include: {
+                    model: database.Musicas
+                }
+            })
+            if(!allMusicas) {
+                return res.status(200).json({ mensagem: 'Não foi encontrado nenhum registro' })
+            } else {
+                return res.status(200).json(allMusicas)
+            }
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
+
+    static async insertMusicIntoPlaylist(req, res) {
+        try {
+            const newRegister = req.body
+            const newRegisterCreated = await database.Playlists_musicas.create(newRegister)
+            return res.status(200).json(newRegisterCreated)
+        } catch (error) {
+            return res.status(500).json(error.message)
+        }
+    }
 }
 
 module.exports = PlaylistController

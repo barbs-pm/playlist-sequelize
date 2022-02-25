@@ -9,5 +9,8 @@ router
     .post('/playlists', PlaylistController.create)
     .put('/playlists/:id', PlaylistController.update)
     .delete('/playlists/:id', PlaylistController.delete)
+    .get('/playlists/:id_playlist/musicas/:id_musica', PlaylistController.listOneMusica)
+    .get('/playlists/:id_playlist/musicas/', PlaylistController.listAllMusicas)
+    .post('/playlists/musicas/', PlaylistController.insertMusicIntoPlaylist)
 
 module.exports = router

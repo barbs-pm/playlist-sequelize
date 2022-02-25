@@ -13,9 +13,6 @@ module.exports = (sequelize, DataTypes) => {
             Albuns.belongsTo(models.Artistas, {
                 foreignKey: 'id_artista'
             })
-            Albuns.hasMany(models.Playlists_musicas, {
-                foreignKey: 'id_album'
-            })
         }
     }
     Albuns.init({
