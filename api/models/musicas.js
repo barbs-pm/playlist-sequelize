@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
                 foreignKey: 'id_musica'
             })
 
-            Musicas.hasMany(models.Playlist_musicas, {
+            Musicas.hasMany(models.Playlists_musicas, {
                 foreignKey: 'id_musica'
             })
         }

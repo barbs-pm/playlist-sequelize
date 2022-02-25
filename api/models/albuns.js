@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
             Albuns.hasOne(models.Artistas, {
                 foreignKey: 'id_album'
             })
-            Albuns.hasMany(models.Playlist_musicas, {
+            Albuns.hasMany(models.Playlists_musicas, {
                 foreignKey: 'id_album'
             })
         }
