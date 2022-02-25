@@ -1,24 +1,49 @@
-'use strict';
-
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+  up: (queryInterface, Sequelize) => {
+      return queryInterface.bulkInsert('Playlists', [{
+              nome: 'Happy Hours',
+              createdAt: new Date(),
+              updatedAt: new Date()
+          },
+          {
+              nome: 'Sad Songs',
+              createdAt: new Date(),
+              updatedAt: new Date()
+          },
+          {
+              nome: 'Trip',
+              createdAt: new Date(),
+              updatedAt: new Date()
+          },
+          {
+              nome: 'Churrasco cos migo',
+              createdAt: new Date(),
+              updatedAt: new Date()
+          },
+          {
+              nome: 'Sunday in the pool',
+              createdAt: new Date(),
+              updatedAt: new Date()
+          },
+          {
+              nome: 'Best Of Taylor Swift',
+              createdAt: new Date(),
+              updatedAt: new Date()
+          },
+          {
+              nome: 'Is not just a phase mom',
+              createdAt: new Date(),
+              updatedAt: new Date()
+          },
+          {
+              nome: 'Old Rock',
+              createdAt: new Date(),
+              updatedAt: new Date()
+          }
+      ], {})
   },
 
-  async down (queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+  down: (queryInterface, Sequelize) => {
+      return queryInterface.bulkDelete('Playlists', null, {})
   }
-};
+}
