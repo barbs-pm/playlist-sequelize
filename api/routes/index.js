@@ -11,4 +11,5 @@ module.exports = app => {
     app.use(artistas)
     app.use(playlists)
     app.use(albuns)
+    app.use(musicas)
 }

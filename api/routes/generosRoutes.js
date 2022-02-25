@@ -3,10 +3,11 @@ const GeneroController = require('../controllers/GeneroController')
 
 const router = Router()
 
-router.get('/generos', GeneroController.listAll)
-router.get('/generos/:id', GeneroController.listOne)
-router.post('/generos', GeneroController.create)
-router.put('/generos/:id', GeneroController.update)
-router.delete('/generos/:id', GeneroController.delete)
+router
+    .get('/generos', GeneroController.listAll)
+    .get('/generos/:id', GeneroController.listOne)
+    .post('/generos', GeneroController.create)
+    .put('/generos/:id', GeneroController.update)
+    .delete('/generos/:id', GeneroController.delete)
 
 module.exports = router
