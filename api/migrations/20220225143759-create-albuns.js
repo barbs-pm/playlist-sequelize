@@ -11,6 +11,11 @@ module.exports = {
       nome: {
         type: Sequelize.STRING
       },
+      id_artista: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Artistas', key: 'id' }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -1,10 +1,9 @@
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-		return queryInterface.bulkInsert('Generos', [
-			{
+	up: (queryInterface, Sequelize) => {
+		return queryInterface.bulkInsert('Generos', [{
 				descr: 'Rock',
 				createdAt: new Date(),
-				updatedAt: new Date()			
+				updatedAt: new Date()
 			},
 			{
 				descr: 'Pop',
@@ -15,23 +14,23 @@ module.exports = {
 				descr: 'Metal',
 				createdAt: new Date(),
 				updatedAt: new Date()
-			}, 
-      {
+			},
+			{
 				descr: 'Reggae',
 				createdAt: new Date(),
-				updatedAt: new Date()			
+				updatedAt: new Date()
 			},
 			{
 				descr: 'Sertanejo',
 				createdAt: new Date(),
 				updatedAt: new Date()
 			},
-      {
+			{
 				descr: 'Punk',
 				createdAt: new Date(),
 				updatedAt: new Date()
 			},
-      {
+			{
 				descr: 'Funk',
 				createdAt: new Date(),
 				updatedAt: new Date()
@@ -40,11 +39,11 @@ module.exports = {
 				descr: 'Kpop',
 				createdAt: new Date(),
 				updatedAt: new Date()
-			} 
-	], {})
-  },
+			}
+		], {})
+	},
 
-  down: (queryInterface, Sequelize) => {
+	down: (queryInterface, Sequelize) => {
 		return queryInterface.bulkDelete('Generos', null, {})
-  }
+	}
 }

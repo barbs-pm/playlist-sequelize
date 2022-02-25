@@ -49,6 +49,11 @@ module.exports = {
                 nome: 'Dua Lipa',
                 createdAt: new Date(),
                 updatedAt: new Date()
+            },
+            {
+                nome: 'Guns n Roses',
+                createdAt: new Date(),
+                updatedAt: new Date()
             }
         ], {})
     },
