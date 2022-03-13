@@ -86,7 +86,12 @@ class PlaylistController {
             if(!allMusicas) {
                 return res.status(200).json({ mensagem: 'Não foi encontrado nenhum registro' })
             } else {
-                return res.status(200).json(allMusicas)
+                const musicasFormatas = allMusicas.map(musica => ({
+                    id_musica: musica.id_musica, 
+                    id_playlist: musica.id_playlist, 
+                    nome: musica.Musica.nome
+                }))
+                return res.status(200).json(musicasFormatas)
             }
         } catch (error) {
             return res.status(500).json(error.message)
