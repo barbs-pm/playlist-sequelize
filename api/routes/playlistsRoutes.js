@@ -12,5 +12,6 @@ router
     .get('/playlists/:id_playlist/musicas/:id_musica', PlaylistController.listOneMusica)
     .get('/playlists/:id_playlist/musicas/', PlaylistController.listAllMusicas)
     .post('/playlists/musicas/', PlaylistController.insertMusicIntoPlaylist)
+    .delete('/playlists/:id_playlist/musicas/:id_musica', PlaylistController.deleteMusicInPlaylist)
 
 module.exports = router

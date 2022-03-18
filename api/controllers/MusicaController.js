@@ -45,6 +45,14 @@ class MusicaController {
     static async delete(req, res) {
         const { id } = req.params
         try {
+            const musicaExiste = await database.Musicas.findOne({
+                where: { id: Number(id) }
+            })
+
+            if(!musicaExiste){
+                return res.status(404).json({ mensagem: 'O registro não existe.' })
+            }
+
             await database.Musicas.destroy( { where: { id: Number(id) } } )
             return res.status(200).json( { mensagem: "O registro foi deletado" } )
         } catch (error) {
