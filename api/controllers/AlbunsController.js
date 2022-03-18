@@ -25,6 +25,14 @@ class AlbumController {
     static async create(req, res) {
         const newAlbum = req.body
         try {
+            const artistaExiste = await database.Artistas.findOne({
+                where: { id: Number(newAlbum.id_artista) }
+            })
+
+            if(!artistaExiste){
+                return res.status(404).json({ mensagem: 'O artista não existe.' })
+            }
+
             const newAlbumCreated = await database.Albuns.create(newAlbum)
             
             return res.status(201).json(newAlbumCreated) 

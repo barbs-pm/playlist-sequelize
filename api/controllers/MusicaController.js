@@ -23,6 +23,22 @@ class MusicaController {
     static async create(req, res) {
         const newMusica = req.body
         try {
+            const artistaExiste = await database.Artistas.findOne({
+                where: { id: Number(newMusica.id_artista) }
+            })
+
+            if(!artistaExiste){
+                return res.status(404).json({ mensagem: 'O artista não existe.' })
+            }
+
+            const generoExiste = await database.Generos.findOne({
+                where: { id: Number(newMusica.id_genero) }
+            })
+
+            if(!generoExiste){
+                return res.status(404).json({ mensagem: 'O gênero não existe.' })
+            }
+
             const newMusicaCreated = await database.Musicas.create(newMusica)
             return res.status(201).json(newMusicaCreated)          
         } catch (error) {

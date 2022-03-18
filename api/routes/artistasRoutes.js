@@ -1,5 +1,5 @@
 const { Router } = require('express')
-const ArtistaController = require('../controllers/artistaController')
+const ArtistaController = require('../controllers/ArtistaController')
 
 const router = Router()
 
